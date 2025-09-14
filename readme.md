@@ -150,7 +150,7 @@ The infinitesimal updates of Projfactor is defined as follows:
 $$\frac{d}{dt}\tilde m_t^{s}=a\!\left(\tilde G_t^{s}-\tilde m_t^{s}\right), \qquad \hat v_t^{o}=\frac{\tilde v_{rt}^{o}\,\tilde v_{ct}^{o}}{\mathbf{1}_n^{\top}\tilde v_{rt}^{o}}; \\
 \frac{d}{dt}\tilde v_{rt}^{o} = b\!\left((\tilde G_t^{o})^{\odot 2}\,\mathbf{1}_m - \tilde v_{rt}^{o}\right); \\
 \frac{d}{dt}\tilde v_{ct}^{o} = b\!\left(\mathbf{1}_n^{\top}(\tilde G_t^{o})^{\odot 2} - \tilde v_{ct}^{o}\right); \\
-\frac{d}{dt}W_t = \operatorname{Reshape}\!\left(-\,\tilde m_t^{s}\tilde P^{\top}/\sqrt{\hat v_t^{o}},\;[n,m]\right).
+\frac{d}{dt}W_t = Reshape\!\left(-\,\tilde m_t^{s}\tilde P^{\top}/\sqrt{\hat v_t^{o}},\;[n,m]\right).
 $$
 
 We use `*` to denote the above update system.
