@@ -147,11 +147,10 @@ To analyze the convergence properties of ProjFactor, we leverage the Hamiltonian
 
 The infinitesimal updates of Projfactor is defined as follows:
 
-$$\frac{d}{dt}\tilde m_t^{s}=a\!\left(\tilde G_t^{s}-\tilde m_t^{s}\right), \qquad \hat v_t^{o}=\frac{\tilde v_{rt}^{o}\,\tilde v_{ct}^{o}}{\mathbf{1}_n^{\top}\tilde v_{rt}^{o}}; \\
-\frac{d}{dt}\tilde v_{rt}^{o} = b\!\left((\tilde G_t^{o})^{\odot 2}\,\mathbf{1}_m - \tilde v_{rt}^{o}\right); \\
-\frac{d}{dt}\tilde v_{ct}^{o} = b\!\left(\mathbf{1}_n^{\top}(\tilde G_t^{o})^{\odot 2} - \tilde v_{ct}^{o}\right); \\
-\frac{d}{dt}W_t = Reshape\!\left(-\,\tilde m_t^{s}\tilde P^{\top}/\sqrt{\hat v_t^{o}},\;[n,m]\right).
-$$
+$$\frac{d}{dt}\tilde m_t^{s}=a\left(\tilde G_t^{s}-\tilde m_t^{s}\right), \qquad \hat v_t^{o}=\frac{\tilde v_{rt}^{o}\,\tilde v_{ct}^{o}}{\mathbf{1}_n^{\top}\tilde v_{rt}^{o}};$$
+$$\frac{d}{dt}\tilde v_{rt}^{o} = b\left((\tilde G_t^{o})^{\odot 2}\,\mathbf{1}_m - \tilde v_{rt}^{o}\right);$$
+$$\frac{d}{dt}\tilde v_{ct}^{o} = b\left(\mathbf{1}_n^{\top}(\tilde G_t^{o})^{\odot 2} - \tilde v_{ct}^{o}\right);$$
+$$\frac{d}{dt}W_t = Reshape\left(-\,\tilde m_t^{s}\tilde P^{\top}/\sqrt{\hat v_t^{o}},\;[n,m]\right).$$
 
 We use `*` to denote the above update system.
 
@@ -173,7 +172,7 @@ Subsequently, we make the following mild assumptions, consistent with prior work
 
 1. For $(W_t, \tilde{m}_t^{s}, \tilde{v}_{rt}^{\,o}, \tilde{v}_{ct}^{\,o})$ satisfying `*`,
    $$
-   \frac{d}{dt}\,\mathcal{H}\!\left(W_t,\tilde{m}_t^{s},\tilde{v}_{rt}^{\,o},\tilde{v}_{ct}^{\,o}\right)\le 0 .
+   \frac{d}{dt}\,\mathcal{H}\left(W_t,\tilde{m}_t^{s},\tilde{v}_{rt}^{\,o},\tilde{v}_{ct}^{\,o}\right)\le 0 .
    $$
 2. Any bounded solution $\bigl(W_t,\tilde{m}_t^{s},\tilde{v}_{rt}^{\,o},\tilde{v}_{ct}^{\,o}\bigr)_t$ of `*` converges to a stationary point of $\mathcal{L}(W)$ as $t\to\infty$.
 
