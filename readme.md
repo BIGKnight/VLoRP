@@ -164,17 +164,17 @@ $$\mathcal{H}(W,\tilde{m}^s,\tilde{v}^o_{r},\tilde{v}^o_c) = \mathcal{L}(W)+ \fr
 Subsequently, we make the following mild assumptions, consistent with prior works in this area, to establish the mathematical foundation for our analysis. 
 
 **Assumption**  Assume the functions in system \eqref{eq:projfactor_infinitesimal_appendix} are continuously differentiable, and following conditions hold
-1. $\frac{d}{dt} \mathcal{H} (W_t , \tilde{m}_t^s , \tilde{v}^{o}_{rt} , \tilde{v}^{o}_{ct} ) = 0$ implies $\tilde{G}^s_t=0$.
+1. $\frac{d}{dt} \mathcal{H} \left(W_t , \tilde{m}_t^s , \tilde{v}^{o}_{rt} , \tilde{v}^{o}_{ct}\right) = 0$ implies $\tilde{G}^s_t=0$.
 2. For any $t>0$, if $G_t\neq 0$, then $\tilde{G}_t^s \neq 0$ and $\tilde{G}_t^o \neq 0$. 
 3. For any $t>0$, $\frac{|\tilde{G}_t^o|^2}{|\tilde{v}^o_{rt}|}\leq R$.
 
 **Theorem 2.** Suppose the functions in system `*` are continuously differentiable. Under above **Assumption** we have:
 
-1. For $(W_t, \tilde{m}_t^{s}, \tilde{v}_{rt}^{o}, \tilde{v}_{ct}^{o})$ satisfying `*`, 
+1. For $\left(W_t, \tilde{m}_t^{s}, \tilde{v}_{rt}^{o}, \tilde{v}_{ct}^{o}\right)$ satisfying `*`, 
 
 $$\frac{d}{dt} \mathcal{H}\left(W_t, \tilde{m}_t^{s}, \tilde{v}_{rt}^{o}, \tilde{v}_{ct}^{o}\right) \le 0$$
 
-2. Any bounded solution $\bigl(W_t, \tilde{m}_t^{s}, \tilde{v}_{rt}^{o}, \tilde{v}_{ct}^{o}\bigr)_t$ of `*` converges to a stationary point of $\mathcal{L}(W)$ as $t\to\infty$.
+2. Any bounded solution $\left(W_t, \tilde{m}_t^{s}, \tilde{v}_{rt}^{o}, \tilde{v}_{ct}^{o}\right)_t$ of `*` converges to a stationary point of $\mathcal{L}(W)$ as $t\to\infty$.
 
 ---
 
