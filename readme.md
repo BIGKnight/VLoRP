@@ -132,7 +132,7 @@ Under a fixed budget `M`, finer granularity reduces FLOPs (by a factor proportio
 Consider a loss function $\mathcal{L}: \mathbb{R}^{n \times m} \to \mathbb{R}$ defined over matrix parameters $W \in \mathbb{R}^{n \times m}$. Fix a memory budget $\mathcal{M}$, a granularity factor $c$, rank $r$, and $G = \nabla_{W} \mathcal{L}(W)$, we have
 
 **Theorem 1.** Let $\mathcal{L}$ be an $L$-smooth function with respect to the matrix-shaped parameter $W$.
-Assume the parameter updates are given by $W_{t+1} = W_t - \eta \,G_t^o$, where the step size is defined as $\eta = \tfrac{\mathcal{M}}{(m + c + \mathcal{M})L} := C$.
+Assume the parameter updates are given by $W_{t+1} = W_t - \eta  G_t^o$, where the step size is defined as $\eta = \tfrac{\mathcal{M}}{(m + c + \mathcal{M})L} := C$.
 Then, for any $T \geq 1$:
 
 $$\frac{1}{T} \sum_{t=0}^{T-1} \mathbb{E}\bigl[\|G_t\|^2\bigr] \leq \frac{2C}{T}\bigl(\mathcal{L}(W_0) - \mathcal{L}(W^*)\bigr),$$
@@ -147,8 +147,8 @@ To analyze the convergence properties of ProjFactor, we leverage the Hamiltonian
 
 The infinitesimal updates of Projfactor is defined as follows:
 
-$$\frac{d}{dt}\tilde m_t^{s}=a\left(\tilde G_t^{s}-\tilde m_t^{s}\right), \qquad \hat v_t^{o}=\frac{\tilde v_{rt}^{o}\,\tilde v_{ct}^{o}}{\mathbf{1}_n^{\top}\tilde v_{rt}^{o}};$$
-$$\frac{d}{dt}\tilde v_{rt}^{o} = b\left((\tilde G_t^{o})^{\odot 2}\,\mathbf{1}_m - \tilde v_{rt}^{o}\right);$$
+$$\frac{d}{dt}\tilde m_t^{s}=a\left(\tilde G_t^{s}-\tilde m_t^{s}\right), \qquad \hat v_t^{o}=\frac{\tilde v_{rt}^{o} \tilde v_{ct}^{o}}{\mathbf{1}_n^{\top}\tilde v_{rt}^{o}};$$
+$$\frac{d}{dt}\tilde v_{rt}^{o} = b\left((\tilde G_t^{o})^{\odot 2} \mathbf{1}_m - \tilde v_{rt}^{o}\right);$$
 $$\frac{d}{dt}\tilde v_{ct}^{o} = b\left(\mathbf{1}_n^{\top}(\tilde G_t^{o})^{\odot 2} - \tilde v_{ct}^{o}\right);$$
 $$\frac{d}{dt}W_t = Reshape\left(-\tilde m_t^{s}\tilde P^{\top}/\sqrt{\hat v_t^{o}}, [n,m]\right).$$
 
@@ -170,11 +170,8 @@ Subsequently, we make the following mild assumptions, consistent with prior work
 
 **Theorem 2.** Suppose the functions in system `*` are continuously differentiable. Under above **Assumption** we have:
 
-1. For $(W_t, \tilde{m}_t^{s}, \tilde{v}_{rt}^{\,o}, \tilde{v}_{ct}^{\,o})$ satisfying `*`,
-   $$
-   \frac{d}{dt}\,\mathcal{H}\left(W_t,\tilde{m}_t^{s},\tilde{v}_{rt}^{\,o},\tilde{v}_{ct}^{\,o}\right)\le 0 .
-   $$
-2. Any bounded solution $\bigl(W_t,\tilde{m}_t^{s},\tilde{v}_{rt}^{\,o},\tilde{v}_{ct}^{\,o}\bigr)_t$ of `*` converges to a stationary point of $\mathcal{L}(W)$ as $t\to\infty$.
+1. For $(W_t, \tilde{m}_t^{s}, \tilde{v}_{rt}^{ o}, \tilde{v}_{ct}^{ o})$ satisfying `*`, $$\frac{d}{dt} \mathcal{H}\left(W_t,\tilde{m}_t^{s},\tilde{v}_{rt}^{ o},\tilde{v}_{ct}^{ o}\right)\le 0 .$$
+2. Any bounded solution $\bigl(W_t,\tilde{m}_t^{s},\tilde{v}_{rt}^{ o},\tilde{v}_{ct}^{ o}\bigr)_t$ of `*` converges to a stationary point of $\mathcal{L}(W)$ as $t\to\infty$.
 
 ---
 
