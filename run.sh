@@ -1,0 +1,20 @@
+CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node 1 torchrun_main.py  \
+    --model_name llama-2-7b \
+    --dataset commonsense \
+    --lr 2e-5 \
+    --activation_checkpointing   \
+    --batch_size 16   \
+    --total_batch_size 512 \
+    --num_training_steps 138 \
+    --warmup_steps 0 \
+    --weight_decay 0  \
+    --grad_clipping 1.0 \
+    --dtype bfloat16   \
+    --eval_every 100 \
+    --update_proj_gap 30 \
+    --scale 0.25 \
+    --factor 256 --rank 1  \
+    --single_gpu \
+    --optimizer projfactor \
+    --max_length 1024 \
+    --wandb_expname  llama2-7b-commonsense-VLoRP-c256-r1 
