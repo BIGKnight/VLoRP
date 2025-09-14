@@ -3,7 +3,7 @@ import transformers
 from peft_pretraining import training_utils
 from transformers.pytorch_utils import Conv1D
 import torch.nn as nn
-from optimizers import ProjFactor
+from optim import ProjFactor
 
 def optimizer_constructor(args, logger, model):
     if args.optimizer.lower() == "projfactor":
