@@ -134,9 +134,9 @@ Consider a loss function $\mathcal{L}: \mathbb{R}^{n \times m} \to \mathbb{R}$ d
 **Theorem 1.** Let $\mathcal{L}$ be an $L$-smooth function with respect to the matrix-shaped parameter $W$.
 Assume the parameter updates are given by $W_{t+1} = W_t - \eta \,G_t^o$, where the step size is defined as $\eta = \tfrac{\mathcal{M}}{(m + c + \mathcal{M})L} := C$.
 Then, for any $T \geq 1$:
-$$
-\frac{1}{T} \sum_{t=0}^{T-1} \mathbb{E}\bigl[\|G_t\|^2\bigr] \leq \frac{2C}{T}\bigl(\mathcal{L}(W_0) - \mathcal{L}(W^*)\bigr),
-$$
+
+$$\frac{1}{T} \sum_{t=0}^{T-1} \mathbb{E}\bigl[\|G_t\|^2\bigr] \leq \frac{2C}{T}\bigl(\mathcal{L}(W_0) - \mathcal{L}(W^*)\bigr),$$
+
 where $W^*$ is a global minimizer of $\mathcal{L}$.
 
 Theorem 1 confirms that using random projection-based gradient estimation with VLoRP in conjunction with SGD achieves an $O(1/T)$ convergence rate, regardless of the granularity factor $c$. 
@@ -150,7 +150,7 @@ The infinitesimal updates of Projfactor is defined as follows:
 $$\frac{d}{dt}\tilde m_t^{s}=a\left(\tilde G_t^{s}-\tilde m_t^{s}\right), \qquad \hat v_t^{o}=\frac{\tilde v_{rt}^{o}\,\tilde v_{ct}^{o}}{\mathbf{1}_n^{\top}\tilde v_{rt}^{o}};$$
 $$\frac{d}{dt}\tilde v_{rt}^{o} = b\left((\tilde G_t^{o})^{\odot 2}\,\mathbf{1}_m - \tilde v_{rt}^{o}\right);$$
 $$\frac{d}{dt}\tilde v_{ct}^{o} = b\left(\mathbf{1}_n^{\top}(\tilde G_t^{o})^{\odot 2} - \tilde v_{ct}^{o}\right);$$
-$$\frac{d}{dt}W_t = Reshape\left(-\,\tilde m_t^{s}\tilde P^{\top}/\sqrt{\hat v_t^{o}},\;[n,m]\right).$$
+$$\frac{d}{dt}W_t = Reshape\left(-\tilde m_t^{s}\tilde P^{\top}/\sqrt{\hat v_t^{o}}, [n,m]\right).$$
 
 We use `*` to denote the above update system.
 
